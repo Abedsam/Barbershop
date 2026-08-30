@@ -28,6 +28,40 @@ if (heroSection && heroBg && !prefersReducedMotion) {
   updateHeroZoom();
 }
 
+/* Video scrub: video position follows scroll progress through its section */
+const scrubSection = document.getElementById('salon-video');
+const scrubVideo = document.getElementById('scrub-video');
+
+if (scrubSection && scrubVideo && !prefersReducedMotion) {
+  let duration = 0;
+  scrubVideo.addEventListener('loadedmetadata', () => { duration = scrubVideo.duration; });
+  scrubVideo.pause();
+
+  function unlockVideo() {
+    scrubVideo.play().then(() => scrubVideo.pause()).catch(() => {});
+  }
+  window.addEventListener('touchstart', unlockVideo, { passive: true, once: true });
+  window.addEventListener('scroll', unlockVideo, { passive: true, once: true });
+
+  let scrubTicking = false;
+  function updateScrub() {
+    const rect = scrubSection.getBoundingClientRect();
+    const total = scrubSection.offsetHeight - window.innerHeight;
+    const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+    if (duration) {
+      scrubVideo.currentTime = progress * duration;
+    }
+    scrubTicking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!scrubTicking) {
+      requestAnimationFrame(updateScrub);
+      scrubTicking = true;
+    }
+  }, { passive: true });
+  updateScrub();
+}
+
 /* Scroll reveal for sections */
 if (!prefersReducedMotion) {
   const revealTargets = document.querySelectorAll(
