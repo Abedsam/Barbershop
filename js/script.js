@@ -119,56 +119,17 @@ const HOURS = {
   5: [9, 19],
   6: [10, 18],
 };
-const DAY_LABEL = {
-  0: 'Sonntag', 1: 'Montag', 2: 'Dienstag', 3: 'Mittwoch',
-  4: 'Donnerstag', 5: 'Freitag', 6: 'Samstag'
-};
-
 function updateStatus() {
   const now = new Date();
   const day = now.getDay();
-  const hour = now.getHours() + now.getMinutes() / 60;
   const todayRange = HOURS[day];
 
-  const statusBadge = document.getElementById('status-badge');
-  const statusText = document.getElementById('status-text');
   const todayHours = document.getElementById('today-hours');
-
-  let isOpen = false;
-  let todayLabel = 'Geschlossen';
-
-  if (todayRange) {
-    todayLabel = `${String(todayRange[0]).padStart(2, '0')}:00 – ${String(todayRange[1]).padStart(2, '0')}:00`;
-    isOpen = hour >= todayRange[0] && hour < todayRange[1];
-  }
-  todayHours.textContent = todayLabel;
-
-  if (isOpen) {
-    statusBadge.classList.add('open');
-    statusBadge.classList.remove('closed');
-    statusText.textContent = `Geöffnet · Schließt um ${String(todayRange[1]).padStart(2, '0')}:00 Uhr`;
-  } else {
-    statusBadge.classList.add('closed');
-    statusBadge.classList.remove('open');
-
-    let nextDay = day;
-    let hops = 0;
-    let opensToday = false;
-    if (todayRange && hour < todayRange[0]) {
-      opensToday = true;
-    } else {
-      do {
-        nextDay = (nextDay + 1) % 7;
-        hops++;
-      } while (!HOURS[nextDay] && hops < 7);
-    }
-
-    if (opensToday) {
-      statusText.textContent = `Geschlossen · Öffnet heute um ${String(todayRange[0]).padStart(2, '0')}:00 Uhr`;
-    } else {
-      const range = HOURS[nextDay];
-      statusText.textContent = `Geschlossen · Öffnet ${DAY_LABEL[nextDay]} um ${String(range[0]).padStart(2, '0')}:00 Uhr`;
-    }
+  if (todayHours) {
+    const todayLabel = todayRange
+      ? `${String(todayRange[0]).padStart(2, '0')}:00 – ${String(todayRange[1]).padStart(2, '0')}:00`
+      : 'Geschlossen';
+    todayHours.textContent = todayLabel;
   }
 
   document.querySelectorAll('#hours-table tr').forEach(row => {

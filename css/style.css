@@ -236,22 +236,6 @@ img { max-width: 100%; display: block; }
 
 .hero-desc { font-size: 1.05rem; max-width: 46ch; }
 
-.hero-meta { margin-bottom: 26px; }
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  font-size: 0.88rem;
-  font-weight: 600;
-}
-.status-badge i { font-size: 0.55rem; }
-.status-badge.open i { color: var(--green); }
-.status-badge.closed i { color: #e05a5a; }
-
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
 .hero-visual { display: flex; justify-content: center; }
