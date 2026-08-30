@@ -223,20 +223,9 @@ img { max-width: 100%; display: block; }
 }
 .hero h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 14px; }
 
-.hero-rating {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-  flex-wrap: wrap;
-}
-.stars { color: var(--gold); letter-spacing: 2px; }
-.rating-value { font-weight: 700; }
-.rating-count { color: var(--text-muted); font-size: 0.9rem; }
 
 .hero-desc { font-size: 1.05rem; max-width: 46ch; }
 
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
 .hero-visual { display: flex; justify-content: center; }
 .hero-badge-card {
@@ -642,6 +631,4 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 520px) {
   .about-grid { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .btn { justify-content: center; }
 }
