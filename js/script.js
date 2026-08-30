@@ -177,6 +177,73 @@ function updateStatus() {
 }
 updateStatus();
 
+/* Google reviews marquee */
+const REVIEWS = [
+  { name: "Masiha Raoufi", sub: "11 Rezensionen · 13 Fotos", time: "vor 4 Monaten", text: "Absolutely obsessed with my new cut and color! Gamze at Alster Frisuer totally understood what I wanted and made it even better." },
+  { name: "ARWM", sub: "Local Guide · 50 Rezensionen · 12 Fotos", time: "vor 5 Monaten", text: "Freundliche Friseure und eine faire Preisgestaltung für die Lage. Teilweise muss man mit 10-20 Minuten Wartezeit trotz Termin rechnen. Komme allerdings immer wieder gerne zum Haareschneiden." },
+  { name: "Tanja", sub: "Local Guide · 334 Rezensionen · 1.143 Fotos", time: "vor 3 Jahren", text: "Sehr freundliches Personal, war sehr zufrieden. Die Friseurin, die mir meine Haare geschnitten hat, war ruhig, konzentriert und voll sympathisch. Danke ;-) Preis war überraschend günstig: 38€ für Waschen/Schneiden/Föhnen (Angebot)." },
+  { name: "noura zafaranchy", sub: "4 Rezensionen", time: "vor 3 Monaten", text: "Der beste Friseur, wo ich je war. Ich habe pechschwarze Haare und es ist super schwer, gute Strähnen zu machen – aber hier war's echt mega 😍" },
+  { name: "Thomas", sub: "2 Rezensionen", time: "vor 2 Jahren", text: "Super Friseur, gehe seit 1 Jahr regelmäßig dahin und bin jedes Mal mehr als zufrieden. Man merkt richtig, dass es die Leidenschaft vom Chef ist. Er nimmt sich Zeit, um alles perfekt zu schneiden. Wenn ich könnte, würde ich mehr als nur 5 Sterne geben." },
+  { name: "Thomas Venus", sub: "6 Rezensionen", time: "vor einem Jahr", text: "Morgens angerufen und mittags direkt einen Termin bekommen. Der Laden war voll und ich bin trotzdem direkt drangekommen. Guter Haarschnitt und nettes Team." },
+  { name: "Sebastian B", sub: "Local Guide · 34 Rezensionen · 22 Fotos", time: "vor 2 Jahren", text: "Ich war seit langem auf der Suche nach einem guten Frisör. Ich denke, dass ich ihn endlich gefunden habe. Schnell, freundlich, kompetent, unkompliziert und der Preis von 20€ für einen Herrenhaarschnitt ist absolut unschlagbar. Man bekommt sogar einen Tee angeboten." },
+  { name: "Benedict Bühler", sub: "Local Guide · 9 Rezensionen · 19 Fotos", time: "vor 3 Jahren", text: "Ich bin letzte Woche spontan vorbeigelaufen, ich kam direkt ohne Wartezeit dran. Das Endergebnis ist klasse geworden, ich werde auf jeden Fall wieder hingehen. Leistung ist top und der Preis geht voll klar." },
+  { name: "primrose09", sub: "Local Guide · 19 Rezensionen · 10 Fotos", time: "vor 3 Jahren", text: "Habe spontan einen Termin bekommen, eine ungefähre Vorstellung geäußert und der Haarschnitt ist super geworden. Wahnsinns Preis-Leistungsverhältnis und sehr netter Service. Gerne wieder." },
+  { name: "Mashhood Sattari", sub: "3 Rezensionen", time: "vor 2 Jahren", text: "I had an amazing experience with Gamze. They truly are a master of their craft and brought their own creative vision to the table. I've never felt more confident and beautiful after a haircut. Five stars aren't enough!" },
+  { name: "Leander Rosado", sub: "Local Guide · 119 Rezensionen", time: "vor 4 Jahren", text: "Das erste Mal dort gewesen, nachdem ich spontan am selben Tag noch einen Termin bekommen habe. Sehr netter Friseur, sehr gutes Ergebnis, top Preis/Leistung. Komme definitiv wieder." },
+  { name: "Nese Akyol", sub: "2 Rezensionen", time: "vor 3 Jahren", text: "Auf Instagram entdeckt, aus Lübeck hergefahren – der Weg hat sich gelohnt. Super Beratung, hat 100 Prozent rausgeholt, was leider ein anderer Friseur ruiniert hatte. Kann ich nur empfehlen." },
+  { name: "S. waldmann", sub: "Local Guide · 80 Rezensionen · 17 Fotos", time: "vor 7 Monaten", text: "Sehr freundliches Personal und nette Atmosphäre." },
+  { name: "KStudy", sub: "6 Rezensionen · 4 Fotos", time: "vor 3 Jahren", text: "Bin beim Vorbeigehen auf den liebevoll eingerichteten Friseur in den Hamburger Kolonnaden aufmerksam geworden. Sehr freundliches Personal und sehr saubere Ausführung des Haarschnitts. Ich komme sehr gern wieder!" },
+  { name: "Do Mi", sub: "1 Rezension", time: "vor 3 Jahren", text: "Ich war heute für einen Herrenhaarschnitt dort. Das Ergebnis ist perfekt geworden und das Ambiente ist super. Werde auf jeden Fall wieder kommen!" },
+  { name: "Taner akbas", sub: "Local Guide · 22 Rezensionen · 18 Fotos", time: "vor 2 Jahren", text: "Ich bin sehr zufrieden mit der Arbeit des Friseurs und der Preis ist auch super fair. Er hat sich viel Zeit für mich genommen und sehr viel Mühe gegeben." },
+  { name: "Yigal Bloch", sub: "Local Guide · 44 Rezensionen · 5 Fotos", time: "vor 3 Jahren", text: "I went here 4 times already and always got a quick appointment around lunch time. My hair looks neat again. Can recommend!" },
+  { name: "Tim S.", sub: "4 Rezensionen", time: "vor 4 Jahren", text: "Super Friseur. Sehr zuvorkommend und freundlich. Bin mit dem Resultat sehr zufrieden. Preis-Leistung absolut unschlagbar in der Region Gänsemarkt. Komme sehr sicher wieder!" },
+  { name: "Petra", sub: "5 Rezensionen", time: "vor 2 Jahren", text: "Super nett und tolle Leute ❤️ ich bin aus Bayern im Urlaub in Hamburg und bin gleich drangekommen 🥰 vielen lieben Dank fürs Haare glätten, ich komme immer wieder gerne wenn ich hier bin." },
+  { name: "Lea Garling", sub: "1 Rezension", time: "vor 3 Jahren", text: "Ein rundum guter Service. Man erreicht den Salon gut mit öffentlichen Verkehrsmitteln, wird mit leckerem Kaffee versorgt und die Qualität der Arbeit ist tip top. Ich habe mich durchgehend wohlgefühlt." },
+  { name: "Jonathan Bahlsen", sub: "Local Guide · 30 Rezensionen · 6 Fotos", time: "vor 4 Jahren", text: "Die Friseure sind sehr zuvorkommend und sind stets bemüht, die Kundenwünsche umzusetzen. Außerdem ist der Laden mit den öffentlichen Verkehrsmitteln sehr gut zu erreichen." },
+  { name: "Tobi", sub: "Local Guide · 38 Rezensionen · 19 Fotos", time: "vor 3 Jahren", text: "Mein neuer Stamm-Friseur! Super Haarschnitt und super Preis-Leistung!! Kann ich nur jedem empfehlen 😊" },
+  { name: "M H", sub: "Local Guide · 954 Rezensionen · 783 Fotos", time: "vor 10 Monaten", text: "Sehr nettes und hilfsbereites Personal. Top Preis-Leistung." },
+  { name: "Joris Jim", sub: "11 Rezensionen · 2 Fotos", time: "vor 3 Jahren", text: "Wie immer super geschnitten!! Bin jetzt zum 5.-6. Mal dagewesen und ich kann diesen Friseur nur weiterempfehlen." },
+  { name: "Mohammed Test", sub: "2 Rezensionen", time: "vor 3 Jahren", text: "Super Friseur, sehr zuvorkommend, einem wird immer ein Café oder Tee angeboten, man kann sehr schöne Gespräche führen und man fühlt sich einfach sehr wohl." },
+  { name: "Piet Overdiek", sub: "2 Rezensionen", time: "vor 3 Jahren", text: "Sehr nettes Personal und sehr guter Haarschnitt! Lohnt sich, hierhin zu kommen!" },
+  { name: "Bjarne Hansen", sub: "7 Rezensionen", time: "vor einem Jahr", text: "Ich war bis jetzt zwei Mal da und werde wiederkommen. Man wird verstanden und auf Nachfrage bekommt man auch super Empfehlungen und Vorschläge." },
+  { name: "Max's Reiseführer", sub: "Local Guide · 39 Rezensionen · 25 Fotos", time: "vor 3 Jahren", text: "Ich bin sehr zufrieden mit dem Service. Super Preis-Leistungsverhältnis. Kann ich echt nur empfehlen!" },
+  { name: "Sascha Wesely", sub: "4 Rezensionen", time: "vor 4 Jahren", text: "Sehr zuvorkommend, super Preis-Leistungsverhältnis, hervorragendes Ergebnis. Gerne jederzeit wieder." },
+  { name: "Rene Hagen", sub: "Local Guide · 32 Rezensionen · 15 Fotos", time: "vor 4 Jahren", text: "Absolut Spitzenklasse! Kompetent, freundlich, sauber, bezahlbar und zufriedenstellend. Komme gern wieder." },
+  { name: "Tobi L.", sub: "Local Guide · 45 Rezensionen · 73 Fotos", time: "vor 3 Jahren", text: "Sofort drangekommen & gut geschnitten. Kartenzahlung ist kein Problem." },
+  { name: "bambam bambam", sub: "3 Rezensionen", time: "vor 3 Jahren", text: "Nettes Personal, guter Haarschnitt. 10/10, alle vorbeikommen, ab geht's." },
+  { name: "Katinka Magnussen", sub: "4 Rezensionen", time: "vor 9 Monaten", text: "Alle Daumen hoch! Vielen Dank ;-)" },
+];
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function initials(name) {
+  return name.trim().split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+}
+
+const reviewsTrack = document.getElementById('reviews-track');
+if (reviewsTrack) {
+  const starsHtml = '<i class="fa-solid fa-star"></i>'.repeat(5);
+  const cardsHtml = REVIEWS.map(r => `
+    <div class="review-card">
+      <div class="review-card-head">
+        <div class="review-avatar" aria-hidden="true">${initials(r.name)}</div>
+        <div class="review-meta">
+          <span class="review-name">${escapeHtml(r.name)}</span>
+          <span class="review-sub">${escapeHtml(r.sub)}</span>
+        </div>
+      </div>
+      <div class="review-stars" aria-hidden="true">${starsHtml}</div>
+      <p class="review-text">${escapeHtml(r.text)}</p>
+      <span class="review-time">${escapeHtml(r.time)}</span>
+    </div>
+  `).join('');
+  reviewsTrack.innerHTML = cardsHtml + cardsHtml;
+}
+
 /* Booking form -> WhatsApp */
 const bookingForm = document.getElementById('booking-form');
 const SALON_WHATSAPP = '4917631154715';
