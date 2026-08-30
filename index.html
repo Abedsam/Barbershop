@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alster Friseur | Friseursalon in Hamburg</title>
+<meta name="description" content="Alster Friseur in der Fehlandtstraße 43, 20354 Hamburg. Herren-, Damen- und Kinderschnitte, Färben, Kosmetik & Pflege. Jetzt Termin per WhatsApp oder Telefon sichern.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="#home" class="logo">
+      <span>Alster Friseur</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#buchen">Termin buchen</a>
+      <a href="#zeiten">Öffnungszeiten</a>
+      <a href="#standort">Standort</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <a href="#buchen" class="btn btn-primary header-cta">Termin buchen</a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="hero-bg" style="background-image:url('images/hero.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Friseursalon in der Hamburger Innenstadt</p>
+        <h1>Alster Friseur</h1>
+        <div class="hero-rating">
+          <span class="stars" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          </span>
+          <span class="rating-value">4,8</span>
+          <span class="rating-count">(65 Google-Rezensionen)</span>
+        </div>
+        <p class="hero-desc">Klassische Schnitte, moderner Style. Herren, Damen &amp; Kinder – mitten an der Alster, nur wenige Schritte vom Jungfernstieg entfernt.</p>
+
+        <div class="hero-meta">
+          <span id="status-badge" class="status-badge">
+            <i class="fa-solid fa-circle"></i> <span id="status-text">Öffnungszeiten werden geladen …</span>
+          </span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#buchen" class="btn btn-primary btn-lg">
+            <i class="fa-brands fa-whatsapp"></i> Termin per WhatsApp
+          </a>
+          <a href="tel:+4917631154715" class="btn btn-outline btn-lg">
+            <i class="fa-solid fa-phone"></i> Anrufen
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip">
+    <div class="container about-grid">
+      <div class="about-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <strong>Fehlandtstraße 43</strong>
+          <span>20354 Hamburg</span>
+        </div>
+      </div>
+      <div class="about-item">
+        <i class="fa-solid fa-phone"></i>
+        <div>
+          <strong>0176 31154715</strong>
+          <span>Anruf oder WhatsApp</span>
+        </div>
+      </div>
+      <div class="about-item">
+        <i class="fa-solid fa-clock"></i>
+        <div>
+          <strong id="today-hours">–</strong>
+          <span>Heutige Öffnungszeit</span>
+        </div>
+      </div>
+      <div class="about-item">
+        <i class="fa-solid fa-star"></i>
+        <div>
+          <strong>4,8 / 5</strong>
+          <span>aus 65 Bewertungen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN / PREISLISTE -->
+  <section class="section" id="leistungen">
+    <div class="container">
+      <p class="section-eyebrow">Preisliste</p>
+      <h2>Unsere Leistungen</h2>
+      <p class="section-lead">Alle Preise verstehen sich als Richtwerte ("ab") und können je nach Haarlänge und Aufwand variieren. Bei Fragen sprich uns gern vor Ort oder telefonisch an.</p>
+
+      <div class="price-tabs" role="tablist">
+        <button class="price-tab active" data-target="herren">Herren</button>
+        <button class="price-tab" data-target="damen">Damen</button>
+        <button class="price-tab" data-target="kosmetik">Kosmetik &amp; Pflege</button>
+        <button class="price-tab" data-target="extras">Extras</button>
+      </div>
+
+      <div class="price-panel active" id="herren">
+        <ul class="price-list">
+          <li><span>Trockenhaarschnitt</span><span class="dots"></span><span>ab 10,00 €</span></li>
+          <li><span>Waschen, Schneiden, Föhnen (auf eine Länge)</span><span class="dots"></span><span>ab 15,00 €</span></li>
+          <li><span>Waschen, Schneiden, Föhnen</span><span class="dots"></span><span>ab 25,00 €</span></li>
+          <li><span>Konturen</span><span class="dots"></span><span>15,00 €</span></li>
+          <li><span>Kinderhaarschnitt bis 9 Jahre</span><span class="dots"></span><span>15,00 €</span></li>
+          <li><span>Haare färben</span><span class="dots"></span><span>ab 25,00 €</span></li>
+          <li><span>Bart färben</span><span class="dots"></span><span>ab 15,00 €</span></li>
+          <li><span>Kopfwäsche</span><span class="dots"></span><span>ab 5,00 €</span></li>
+          <li><span>Augenbrauen zupfen</span><span class="dots"></span><span>10,00 €</span></li>
+          <li><span>Waschen, Föhnen</span><span class="dots"></span><span>10,00 €</span></li>
+        </ul>
+      </div>
+
+      <div class="price-panel" id="damen">
+        <ul class="price-list">
+          <li><span>Waschen, Schneiden, Föhnen (kurz)</span><span class="dots"></span><span>ab 22,00 €</span></li>
+          <li><span>Waschen, Schneiden, Föhnen (mittel)</span><span class="dots"></span><span>ab 28,00 €</span></li>
+          <li><span>Waschen, Schneiden, Föhnen (lang)</span><span class="dots"></span><span>ab 35,00 €</span></li>
+          <li><span>Waschen, Föhnen</span><span class="dots"></span><span>ab 40,00 €</span></li>
+          <li><span>Dauerwelle</span><span class="dots"></span><span>ab 25,00 €</span></li>
+          <li><span>Haarfarbe (Ansatz)</span><span class="dots"></span><span>ab 55,00 €</span></li>
+          <li><span>Foliensträhnen (pro Folie)</span><span class="dots"></span><span>ab 45,00 € / ab 30,00 €</span></li>
+          <li><span>Abtönung</span><span class="dots"></span><span>ab 3,00 €</span></li>
+        </ul>
+      </div>
+
+      <div class="price-panel" id="kosmetik">
+        <ul class="price-list">
+          <li><span>Augenbrauen färben</span><span class="dots"></span><span>ab 15,00 €</span></li>
+          <li><span>Augenbrauen zupfen</span><span class="dots"></span><span>ab 30,00 €</span></li>
+          <li><span>Wimpern färben</span><span class="dots"></span><span>10,00 €</span></li>
+          <li><span>Haarentfernung mit Fadentechnik</span><span class="dots"></span><span>10,00 €</span></li>
+        </ul>
+      </div>
+
+      <div class="price-panel" id="extras">
+        <ul class="price-list">
+          <li><span>Haarkur</span><span class="dots"></span><span>25,00 €</span></li>
+          <li><span>Spülung</span><span class="dots"></span><span>8,00 € / 3,00 €</span></li>
+        </ul>
+      </div>
+
+      <p class="price-note"><i class="fa-solid fa-circle-info"></i> Diese Preise wurden von der Preisliste im Salon übertragen. Bitte final vor Veröffentlichung gegenprüfen.</p>
+    </div>
+  </section>
+
+  <!-- TERMINBUCHUNG -->
+  <section class="section section-alt" id="buchen">
+    <div class="container">
+      <p class="section-eyebrow">Termin buchen</p>
+      <h2>Sichere dir deinen Termin</h2>
+      <p class="section-lead">Fülle das Formular aus – deine Anfrage wird als vorausgefüllte Nachricht direkt per WhatsApp an den Salon gesendet. Wir bestätigen deinen Wunschtermin schnellstmöglich.</p>
+
+      <div class="booking-grid">
+        <form class="booking-form" id="booking-form">
+          <div class="form-row">
+            <label for="b-name">Name</label>
+            <input type="text" id="b-name" name="name" required placeholder="Dein Name">
+          </div>
+
+          <div class="form-row">
+            <label for="b-phone">Telefonnummer</label>
+            <input type="tel" id="b-phone" name="phone" required placeholder="Für Rückfragen">
+          </div>
+
+          <div class="form-row">
+            <label for="b-service">Gewünschte Leistung</label>
+            <select id="b-service" name="service" required>
+              <option value="" disabled selected>Bitte auswählen</option>
+              <optgroup label="Herren">
+                <option>Trockenhaarschnitt</option>
+                <option>Waschen, Schneiden, Föhnen (Herren)</option>
+                <option>Bart färben</option>
+              </optgroup>
+              <optgroup label="Damen">
+                <option>Waschen, Schneiden, Föhnen (Damen)</option>
+                <option>Dauerwelle</option>
+                <option>Haarfarbe / Foliensträhnen</option>
+              </optgroup>
+              <optgroup label="Kosmetik & Pflege">
+                <option>Augenbrauen färben/zupfen</option>
+                <option>Wimpern färben</option>
+                <option>Haarentfernung mit Fadentechnik</option>
+              </optgroup>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+
+          <div class="form-row form-row-split">
+            <div>
+              <label for="b-date">Wunschtermin</label>
+              <input type="date" id="b-date" name="date" required>
+            </div>
+            <div>
+              <label for="b-time">Uhrzeit</label>
+              <input type="time" id="b-time" name="time" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="b-message">Nachricht (optional)</label>
+            <textarea id="b-message" name="message" rows="3" placeholder="Besondere Wünsche oder Hinweise"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <i class="fa-brands fa-whatsapp"></i> Terminanfrage per WhatsApp senden
+          </button>
+          <p class="form-hint">Alternativ erreichst du uns direkt unter <a href="tel:+4917631154715">0176 31154715</a>.</p>
+        </form>
+
+        <div class="booking-side">
+          <div class="booking-card">
+            <i class="fa-solid fa-phone"></i>
+            <h3>Lieber anrufen?</h3>
+            <p>Wir sind gern auch telefonisch für dich da.</p>
+            <a href="tel:+4917631154715" class="btn btn-outline">0176 31154715</a>
+          </div>
+          <div class="booking-card">
+            <i class="fa-brands fa-whatsapp"></i>
+            <h3>Direkt WhatsApp</h3>
+            <p>Schreib uns ohne Formular direkt eine Nachricht.</p>
+            <a href="https://wa.me/4917631154715" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp öffnen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÖFFNUNGSZEITEN -->
+  <section class="section" id="zeiten">
+    <div class="container">
+      <p class="section-eyebrow">Öffnungszeiten</p>
+      <h2>Wann du uns findest</h2>
+
+      <table class="hours-table" id="hours-table">
+        <tbody>
+          <tr data-day="0"><td>Sonntag</td><td>Geschlossen</td></tr>
+          <tr data-day="1"><td>Montag</td><td>09:00 – 19:00</td></tr>
+          <tr data-day="2"><td>Dienstag</td><td>09:00 – 19:00</td></tr>
+          <tr data-day="3"><td>Mittwoch</td><td>09:00 – 19:00</td></tr>
+          <tr data-day="4"><td>Donnerstag</td><td>09:00 – 19:00</td></tr>
+          <tr data-day="5"><td>Freitag</td><td>09:00 – 19:00</td></tr>
+          <tr data-day="6"><td>Samstag</td><td>10:00 – 18:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- BEWERTUNGEN -->
+  <section class="section section-alt" id="bewertungen">
+    <div class="container reviews-inner">
+      <p class="section-eyebrow">Rezensionen</p>
+      <h2>4,8 von 5 Sternen</h2>
+      <div class="stars-big" aria-hidden="true">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+      </div>
+      <p class="section-lead">Basierend auf 65 Google-Rezensionen.</p>
+      <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Alster%20Friseur%20Fehlandtstra%C3%9Fe%2043%20Hamburg" target="_blank" rel="noopener">
+        <i class="fa-brands fa-google"></i> Alle Rezensionen auf Google ansehen
+      </a>
+    </div>
+  </section>
+
+  <!-- STANDORT -->
+  <section class="section" id="standort">
+    <div class="container">
+      <p class="section-eyebrow">Standort</p>
+      <h2>So findest du uns</h2>
+      <div class="map-grid">
+        <div class="map-embed">
+          <iframe
+            title="Standort Alster Friseur"
+            src="https://www.google.com/maps?q=Fehlandtstra%C3%9Fe+43,+20354+Hamburg&output=embed"
+            width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="map-info">
+          <h3>Alster Friseur</h3>
+          <p><i class="fa-solid fa-location-dot"></i> Fehlandtstraße 43, 20354 Hamburg</p>
+          <p><i class="fa-solid fa-phone"></i> <a href="tel:+4917631154715">0176 31154715</a></p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Fehlandtstra%C3%9Fe+43,+20354+Hamburg" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fa-solid fa-diamond-turn-right"></i> Route planen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="kontakt">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span>Alster Friseur</span>
+      <p>Fehlandtstraße 43, 20354 Hamburg</p>
+    </div>
+    <div class="footer-links">
+      <a href="tel:+4917631154715"><i class="fa-solid fa-phone"></i> 0176 31154715</a>
+      <a href="https://wa.me/4917631154715" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <p class="footer-copy">&copy; <span id="year"></span> Alster Friseur</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
